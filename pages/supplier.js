@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import mongoose from 'mongoose';
 
@@ -59,25 +59,31 @@ export default function SupplierPage() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="name">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
-      </Form.Group>
+    <Container>
+      <Row>
+        <Col md={{ span: 6, offset: 3 }}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="name">
+              <Form.Label>Name:</Form.Label>
+              <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
+            </Form.Group>
 
-      <Form.Group controlId="address">
-        <Form.Label>Address</Form.Label>
-        <Form.Control type="text" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} />
-      </Form.Group>
+            <Form.Group controlId="address">
+              <Form.Label>Address:</Form.Label>
+              <Form.Control type="text" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} />
+            </Form.Group>
 
-      <Form.Group controlId="phoneNumber">
-        <Form.Label>Phone Number</Form.Label>
-        <Form.Control type="text" placeholder="Enter phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-      </Form.Group>
+            <Form.Group controlId="phoneNumber">
+              <Form.Label>Phone Number:</Form.Label>
+              <Form.Control type="text" placeholder="Enter phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+            </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Save
-      </Button>
-    </Form>
+            <Button type="submit" class="btn btn-primary">
+              Save
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }
