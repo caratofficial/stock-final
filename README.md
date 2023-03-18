@@ -4,7 +4,7 @@ by Thanyaluck Arunrattanakul 6215301
 
 ## Project Details and functionalities 
 
-A supplier management page on vercel where users can add details of a supplier, including
+A supplier management page on vercel where users can add details of a supplier, including the following:
 
 ```bash
 supplier name
@@ -13,7 +13,7 @@ phone number
 a save button to save supplier to the collection
 ```
 
-The Page has the following functionalities
+The Page has the following functionalities.
 
 ```bash
 The supplier management page
