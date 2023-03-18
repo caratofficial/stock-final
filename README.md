@@ -7,20 +7,20 @@ by Thanyaluck Arunrattanakul 6215301
 A supplier management page on vercel where users can add details of a supplier, including the following:
 
 ```bash
-supplier name
-address
-phone number
-a save button to save supplier to the collection
+-supplier name
+-address
+-phone number
+-a save button to save supplier to the collection
 ```
 
 The Page has the following functionalities.
 
 ```bash
-The supplier management page
-A table of all suppliers sorted by name
-Delete a supplier record
-Update a supplier record
-A button to create new supplier
+-The supplier management page
+-A table of all suppliers sorted by name
+-Delete a supplier record
+-Update a supplier record
+-A button to create new supplier
 ```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
