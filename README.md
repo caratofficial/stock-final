@@ -11,6 +11,7 @@ A supplier page on vercel where users can add details of a supplier, including t
 -address
 -phone number
 -a save button to save supplier to the collection
+when users save informations completed it will show a text.
 ```
 
 The Supplier Management Page has the following functionalities.
@@ -20,8 +21,9 @@ The Supplier Management Page has the following functionalities.
 -A table of all suppliers sorted by name
 -Delete a supplier record
 -Update a supplier record
--A button to create new supplier
+-A button to create new supplier (which is link to a supplier page)
 ```
+The database is mongoose which the MONGODB_URI is on conn.js. The https://stock-final-6215301.vercel.app/api/hello can show the data.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
