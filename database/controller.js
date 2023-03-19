@@ -1,6 +1,6 @@
 import Users from '@/model/user'
 
-export async function getUser(req, res) {
+export async function getUsers(req, res) {
     try{
         const users = await Users.find({})
 
