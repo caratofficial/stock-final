@@ -2,8 +2,8 @@ import { useReducer, useState } from 'react'
 import { BiArchiveIn } from 'react-icons/bi'
 import Success from '@/components/success'
 import Bug from '@/components/bug'
-import {userQueryClient, useMutation} from 'react-query'
-import { addUser } from '@/lib/helper'
+import { useQueryClient, useMutation, addUser, getUsers } from '@/lib/helper'
+
 
 
 const formReducer = (state, event) => {
@@ -14,10 +14,11 @@ const formReducer = (state, event) => {
 }
 
 export default function AddUserForm() {
+  const queryClient = useQueryClient()
   const [formData, setFormData] = useReducer(formReducer, {})
   const addMutation = useMutation(addUser,{
     onSuccess: () => {
-      console.log("Data added successfully")
+      queryClient.prefetchQuery('users',getUsers)
     }
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -37,6 +38,11 @@ export default function AddUserForm() {
     }
     
     addMutation.mutate(model)
+
+    if(Object.keys(formData).length>0)return <Bug message={"Error"}></Bug>
+    if(addMutation.isLoading) return <div>Loading!</div>
+    if(addMutation.isError) return <Bug message={addMutation.error.message}></Bug>
+    if(addMutation.isSuccess) return <Success message={"Added"}></Success>
     
     console.log(formData)
     setIsSubmitted(true)

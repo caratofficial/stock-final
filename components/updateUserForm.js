@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useReducer, useState } from 'react'
 import { BiBrush } from 'react-icons/bi'
 import Success from '@/components/success'
@@ -14,13 +15,19 @@ export default function UpdateUserForm() {
   const [formData, setFormData] = useReducer(formReducer, {})
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (Object.keys(formData).length === 0) {
       console.log("No form data")
-      return
+    } else {
+      try {
+        const response = await axios.post('/api/users', formData)
+        console.log(response.data)
+        setIsSubmitted(true)
+      } catch (error) {
+        console.error(error)
+      }
     }
-    console.log(formData)
     setIsSubmitted(true)
   }
 
