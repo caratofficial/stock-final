@@ -23,7 +23,6 @@ The Supplier Management Page has the following functionalities.
 -Update a supplier record
 -A button to create new supplier (which is link to a supplier page)
 ```
-The database is mongoose which the MONGODB_URI is on conn.js. The https://stock-final-6215301.vercel.app/api/hello can show the data.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
