@@ -1,7 +1,11 @@
 import { BiEdit, BiTrashAlt } from 'react-icons/bi'
 import data from '@/database/data.json'
+import { getUser} from '@/lib/helper'
 
 export default function Table() {
+
+    getUser().then(res=> console.log(res))
+
     return (
         <table className="min-w-full table-auto">
             <thead>

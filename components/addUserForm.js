@@ -2,6 +2,9 @@ import { useReducer, useState } from 'react'
 import { BiArchiveIn } from 'react-icons/bi'
 import Success from '@/components/success'
 import Bug from '@/components/bug'
+import {userQueryClient, useMutation} from 'react-query'
+import { addUser } from '@/lib/helper'
+
 
 const formReducer = (state, event) => {
   return {
@@ -12,6 +15,11 @@ const formReducer = (state, event) => {
 
 export default function AddUserForm() {
   const [formData, setFormData] = useReducer(formReducer, {})
+  const addMutation = useMutation(addUser,{
+    onSuccess: () => {
+      console.log("Data added successfully")
+    }
+  })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = (e) => {
@@ -20,6 +28,16 @@ export default function AddUserForm() {
       console.log("No form data")
       return
     }
+    let {supplierName, address, phone} = formData;
+
+    const model = {
+      supplierName,
+      address,
+      phone
+    }
+    
+    addMutation.mutate(model)
+    
     console.log(formData)
     setIsSubmitted(true)
   }

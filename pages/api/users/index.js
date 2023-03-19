@@ -18,7 +18,7 @@ switch (method) {
     putUser(req, res)
     break;
     case'DELETE':
-    deleteUser(req, res);
+    deleteUser(req, res)
     break;
     default:
         res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
